@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# uriBX — marketing site + live device demo
 
-## Getting Started
+Landing page for the **uriBX URB-1000** veterinary cancer-screening analyzer, with an
+**interactive online device demo**: the real firmware UI compiled to WebAssembly and
+running in the browser.
 
-First, run the development server:
+- **Framework:** Next.js 16 (App Router) · React 19 · Tailwind CSS v4
+- **Fonts:** Fraunces (display) · Geist Sans (body) · Geist Mono (data)
+- **Device demo:** the firmware LVGL UI → WASM, in `public/demo/` (`uribx.js` + `uribx.wasm`)
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## The online device demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`app/components/DeviceDemo.tsx` loads `public/demo/uribx.js`, blits the LVGL framebuffer
+to a `<canvas>`, and bridges mouse/touch events to the LVGL pointer input. It is the same
+screen code that ships on the device — with hardware/network stubbed for a happy-path
+demo (see `web/web_main.cpp` in the firmware repo).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Rebuilding the demo after a firmware change
 
-## Learn More
+The WASM bundle is generated from the firmware UI source. After changing any device
+screen, regenerate and copy it in one step:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+./scripts/sync-demo.sh
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This runs the firmware's `web/build.sh` (emscripten) and copies the fresh
+`uribx.js` + `uribx.wasm` into `public/demo/`. Point it at a non-default firmware
+checkout with `URIBX_FW=/path/to/firmware ./scripts/sync-demo.sh`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> Requires emscripten (`brew install emscripten`) for the firmware build step. The
+> committed bundle in `public/demo/` means the site builds and deploys without emscripten;
+> you only need it when regenerating the demo.
 
-## Deploy on Vercel
+## Build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build && npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes / to confirm before publishing
+
+- Impact stats and **ISO 13485** wording are placeholders — confirm exact claims/certification.
+- Kit contents list is representative — confirm against the shipping SKU.
+- Medical framing is deliberately "screening aid, for veterinary use, not a diagnosis."

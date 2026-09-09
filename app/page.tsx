@@ -347,45 +347,21 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-5">
             <div className="relative overflow-hidden rounded-3xl border border-line bg-paper-2 p-8 sm:p-12">
               <div className="labgrid pointer-events-none absolute inset-0 opacity-[0.35]" />
-              <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
-                <div>
-                  <p className="eyebrow mb-4">Get in touch</p>
-                  <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-[-0.02em] text-balance">
-                    Bring earlier screening to your clinic.
-                  </h2>
-                  <p className="mt-4 max-w-md text-ink-soft">
-                    Talk to us about pilots, distribution, and pricing for the uriBX
-                    URB-1000 and consumable kits.
-                  </p>
-                  <a
-                    href="mailto:info@uribx.com"
-                    className="mt-8 inline-flex rounded-full bg-brand px-6 py-3 text-sm font-medium text-white transition hover:bg-brand-deep"
-                  >
-                    info@uribx.com
-                  </a>
-                </div>
-                <div className="relative rounded-2xl border border-line bg-paper p-7">
-                  <p className="font-display text-lg font-semibold">
-                    Uribx Medikal Cihaz San. ve Tic. A.Ş.
-                  </p>
-                  <address className="mt-3 not-italic text-sm leading-relaxed text-ink-soft">
-                    İzbaş Serbest Bölgesi
-                    <br />
-                    Menemen, İzmir · Türkiye
-                  </address>
-                  <div className="mt-5 space-y-1.5 font-mono text-sm">
-                    <p>
-                      <span className="text-ink-faint">email </span>
-                      <a href="mailto:info@uribx.com" className="text-brand hover:underline">
-                        info@uribx.com
-                      </a>
-                    </p>
-                    <p>
-                      <span className="text-ink-faint">web&nbsp;&nbsp; </span>
-                      uribx.com
-                    </p>
-                  </div>
-                </div>
+              <div className="relative mx-auto max-w-2xl text-center">
+                <p className="eyebrow mb-4">Get in touch</p>
+                <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-[-0.02em] text-balance">
+                  Bring earlier screening to your clinic.
+                </h2>
+                <p className="mx-auto mt-4 max-w-md text-ink-soft">
+                  Talk to us about pilots, distribution, and pricing for the uriBX
+                  URB-1000 and consumable kits.
+                </p>
+                <a
+                  href="mailto:info@uribx.com"
+                  className="mt-8 inline-flex rounded-full bg-brand px-6 py-3 text-sm font-medium text-white transition hover:bg-brand-deep"
+                >
+                  info@uribx.com
+                </a>
               </div>
             </div>
           </div>
@@ -403,7 +379,7 @@ export default function Home() {
             </p>
           </div>
           <p className="font-mono text-xs text-ink-faint">
-            © {new Date().getFullYear()} Uribx Medikal Cihaz San. ve Tic. A.Ş.
+            © {new Date().getFullYear()} uriBX
           </p>
         </div>
       </footer>

@@ -342,6 +342,61 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ========================================================= BROCHURE */}
+        <section id="brochure" className="section border-b border-line scroll-mt-16">
+          <div className="mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-2 lg:items-center">
+            <Reveal>
+              <p className="eyebrow mb-4">Product brochure</p>
+              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-[-0.02em]">
+                Take uriBX with you.
+              </h2>
+              <p className="mt-4 max-w-md text-ink-soft">
+                The full URB-1000 brochure — the science, the workflow, specifications,
+                and the consumable kit — as a printable trifold. Scan the code with a
+                phone, or download the PDF.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <a
+                  href="/docs/uribx-brochure.pdf"
+                  download
+                  className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-medium text-white transition hover:bg-brand-deep"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 3v12m0 0 4-4m-4 4-4-4" />
+                    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+                  </svg>
+                  Download PDF
+                </a>
+                <a
+                  href="/docs/uribx-brochure.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-ink-soft underline-offset-4 transition hover:text-ink hover:underline"
+                >
+                  Open in browser
+                </a>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="flex justify-center lg:justify-end">
+                <div className="flex flex-col items-center gap-4 rounded-3xl border border-line bg-white p-8 shadow-sm">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/docs/brochure-qr.svg"
+                    alt="QR code — scan to download the uriBX brochure PDF"
+                    width={176}
+                    height={176}
+                    className="h-44 w-44"
+                  />
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                    Scan to download
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         {/* ========================================================= CONTACT */}
         <section id="contact" className="section">
           <div className="mx-auto max-w-6xl px-5">
